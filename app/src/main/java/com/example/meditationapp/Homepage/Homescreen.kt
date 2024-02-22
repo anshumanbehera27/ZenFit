@@ -1,17 +1,15 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.magnifier
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import com.example.meditationapp.R
 import com.example.meditationapp.ui.theme.Beige1
 import com.example.meditationapp.ui.theme.Beige2
@@ -32,10 +30,11 @@ import com.example.meditationapp.ui.theme.OrangeYellow3
 @Composable
 fun mainScreenView(){
     MeditationAppTheme {
+
         Scaffold(
             bottomBar = { navgationView()}
         ) { padding->
-         HomeScreen(Modifier.padding(padding))
+            HomeScreen(Modifier.padding(padding))
 
         }
     }
@@ -48,6 +47,7 @@ fun HomeScreen(modifier: Modifier = Modifier){
         modifier = Modifier
             .background(DeepBlue)
             .fillMaxSize()
+
 
     ) {
         Column {
@@ -96,6 +96,16 @@ fun HomeScreen(modifier: Modifier = Modifier){
                 )
             )
         }
+//        Bottomenu(
+//            items = listOf(
+//                BotttommenuContent("Home", R.drawable.ic_home),
+//                BotttommenuContent("Fitness", R.drawable.ic_fit),
+//                BotttommenuContent("Profile", R.drawable.ic_profile),
+//                BotttommenuContent("article", R.drawable.article)
+//
+//            ), modifier = Modifier.align(Alignment.BottomCenter)
+//        )
+
     }
 
 
@@ -103,17 +113,25 @@ fun HomeScreen(modifier: Modifier = Modifier){
 
 @Composable
 fun navgationView(){
+    val navController = rememberNavController();
     Bottomenu(
         items = listOf(
-            BotttommenuContent("Home", R.drawable.ic_home),
-            BotttommenuContent("Fitness", R.drawable.ic_fit),
-            BotttommenuContent("Profile", R.drawable.ic_profile),
-            BotttommenuContent("article", R.drawable.article)
+           BotttommenuContent(route = "home", titel = "Home", iconId = R.drawable.ic_home),
+            BotttommenuContent(route = "Fitness", titel = "Fitness", iconId = R.drawable.ic_fit),
+            BotttommenuContent(route = "Profile", titel = "Profile", iconId = R.drawable.ic_profile),
+            BotttommenuContent(route = "article", titel = "article", iconId = R.drawable.article)
 
 
-        )
+        ),
+        navController = navController,
+        onItemClick = {
+            navController.navigate(it.route)
+        }
     )
 }
+
+
+
 
 
 

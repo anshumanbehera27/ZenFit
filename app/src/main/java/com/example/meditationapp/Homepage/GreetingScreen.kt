@@ -1,4 +1,4 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

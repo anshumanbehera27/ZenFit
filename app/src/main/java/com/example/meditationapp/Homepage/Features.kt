@@ -1,4 +1,4 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Canvas

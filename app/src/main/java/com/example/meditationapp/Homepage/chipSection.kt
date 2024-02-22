@@ -1,4 +1,4 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

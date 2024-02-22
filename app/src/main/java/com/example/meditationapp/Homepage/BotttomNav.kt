@@ -1,4 +1,4 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 
 
@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -27,52 +27,81 @@ import androidx.compose.ui.graphics.Color
 
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.meditationapp.ui.theme.AquaBlue
 import com.example.meditationapp.ui.theme.ButtonBlue
 import com.example.meditationapp.ui.theme.DeepBlue
 
 data class BotttommenuContent(
+    val route:String,
     val titel :String ,
     @DrawableRes val iconId:Int
 )
 
 
-@Composable
+
+
+
+    @Composable
 fun Bottomenu(
-    items: List<BotttommenuContent>,
-    modifier: Modifier = Modifier,
-    activeHighlightColor: Color = ButtonBlue,
-    activeTextColor: Color = Color(0xffeeeeee),
-    inactiveTextColor: Color = AquaBlue,
-    initialSelectedItemIndex: Int = 0
-) {
+        items: List<BotttommenuContent>,
+        modifier: Modifier = Modifier,
+        activeHighlightColor: Color = ButtonBlue,
+        activeTextColor: Color = Color(0xffeeeeee),
+        inactiveTextColor: Color = AquaBlue,
+        initialSelectedItemIndex: Int = 0,
+        navController: NavController,
+        onItemClick: (BotttommenuContent) -> Unit
+    ) {
     var selectItemIndex by remember {
         mutableStateOf(initialSelectedItemIndex)
     }
+        val backStackEntry = navController.currentBackStackEntryAsState()
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .fillMaxHeight()
+            .fillMaxWidth()
             .background(DeepBlue)
             .padding(15.dp)
     ) {
         items.forEachIndexed{index, item ->
+            val selected = item.route == backStackEntry.value?.destination?.route
             BottomMenuItem(
                 item = item ,
-                isSelected = index == selectItemIndex,
+                isSelected = selected,
                 activeHighlightColor = activeHighlightColor,
                 activeTextColor =activeTextColor ,
                 inactiveTextColor = inactiveTextColor,
+                onItemClick = {onItemClick(item)}
 
 
-            ) {
-                selectItemIndex  = index
-                
-            }
+
+            )
 
 
         }
+//        items.forEachIndexed{index, item ->
+//            BottomMenuItem(
+//                item = item ,
+//                isSelected = index == selectItemIndex,
+//                activeHighlightColor = activeHighlightColor,
+//                activeTextColor =activeTextColor ,
+//                inactiveTextColor = inactiveTextColor,
+//
+//
+//
+//                ) {
+//                selectItemIndex  = index
+//
+//
+//            }
+//
+//
+//        }
 
 
     }
@@ -82,6 +111,7 @@ fun Bottomenu(
 @Composable
 fun BottomMenuItem(
     item: BotttommenuContent,
+
     isSelected: Boolean = false,
     activeHighlightColor: androidx.compose.ui.graphics.Color= ButtonBlue,
     activeTextColor: androidx.compose.ui.graphics.Color = Color(0xffeeeeee),
@@ -119,5 +149,4 @@ fun BottomMenuItem(
 
 
 }
-
 

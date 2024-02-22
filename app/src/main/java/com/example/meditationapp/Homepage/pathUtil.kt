@@ -1,4 +1,4 @@
-package com.example.meditationapp.Desigine
+package com.example.meditationapp.Homepage
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Path
