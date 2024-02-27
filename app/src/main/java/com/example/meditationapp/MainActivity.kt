@@ -14,12 +14,14 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.fitpro.fitnessScreen
 import com.example.materialapp3.MyArticles
 import com.example.meditationapp.Home.route
 import com.example.meditationapp.Homepage.HomeScreen
 
 import com.example.meditationapp.Homepage.mainScreenView
 import com.example.meditationapp.Homepage.navgationView
+import com.example.meditationapp.Profile.Profile
 import com.example.meditationapp.excriese.excriese
 import com.example.meditationapp.ui.theme.MeditationAppTheme
 
@@ -56,7 +58,10 @@ class MainActivity : ComponentActivity() {
                 MyArticles()
             }
             composable("excrise") {
-                excriese()
+                fitnessScreen()
+            }
+            composable("Profile"){
+                Profile()
             }
 
         }

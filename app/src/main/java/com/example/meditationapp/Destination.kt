@@ -1,7 +1,6 @@
 package com.example.meditationapp
 interface Destination{
 
-
     val route:String
 }
 object Home:Destination{

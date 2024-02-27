@@ -36,6 +36,7 @@ import java.util.concurrent.Flow
 
 import kotlin.random.Random
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ImageCard(
     title:String ,

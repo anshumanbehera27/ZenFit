@@ -6,9 +6,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.meditationapp.R
 import com.example.meditationapp.ui.theme.Beige1
@@ -109,14 +115,14 @@ fun HomeScreen(modifier: Modifier = Modifier){
     }
 
 
-  }
+}
 
 @Composable
 fun navgationView(){
     val navController = rememberNavController();
     Bottomenu(
         items = listOf(
-           BotttommenuContent(route = "home", titel = "Home", iconId = R.drawable.ic_home),
+            BotttommenuContent(route = "home", titel = "Home", iconId = R.drawable.ic_home),
             BotttommenuContent(route = "Fitness", titel = "Fitness", iconId = R.drawable.ic_fit),
             BotttommenuContent(route = "Profile", titel = "Profile", iconId = R.drawable.ic_profile),
             BotttommenuContent(route = "article", titel = "article", iconId = R.drawable.article)
@@ -129,6 +135,9 @@ fun navgationView(){
         }
     )
 }
+
+
+
 
 
 

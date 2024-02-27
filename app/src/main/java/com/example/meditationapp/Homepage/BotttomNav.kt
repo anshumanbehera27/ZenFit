@@ -45,7 +45,7 @@ data class BotttommenuContent(
 
 
 
-    @Composable
+@Composable
 fun Bottomenu(
         items: List<BotttommenuContent>,
         modifier: Modifier = Modifier,
