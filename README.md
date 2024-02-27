@@ -50,10 +50,14 @@ Zen Fit is built using the following technologies:
 
 
 ## APP UI 
+<img src="ZenFit/first.png" alt="Image" align="center" width="300">
 
-![Zen Fit Screenshot](images/zenfit-screenshot.png)
-![Zen Fit Screenshot](images/zenfit-screenshot.png)
-![Zen Fit Screenshot](images/zenfit-screenshot.png)
-![Zen Fit Screenshot](images/zenfit-screenshot.png)
+<div style="display: flex; justify-content: space-between;">
+    <img src="ZenFit/HomePage.png" alt="Image" width="250">
+    <img src="ZenFit/fitpro.png" alt="Image" width="300">
+    <img src="ZenFit/Article.png" alt="Image" width="250">
+</div>
+
+
 
 
